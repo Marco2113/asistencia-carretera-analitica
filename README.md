@@ -26,7 +26,7 @@ El resultado muestra cómo datos operativos del día a día pueden convertirse e
 ---
 
 ## 📂 Estructura del Proyecto  
-
+```
 asistencia-carretera-analitica/
 ├── data/
 │ ├── raw/ # Dataset original (sintético)
@@ -38,9 +38,9 @@ asistencia-carretera-analitica/
 │ ├── eda.py # Análisis exploratorio
 │ └── stats.py # Estadística descriptiva e inferencial
 ├── requirements.txt # Dependencias
-├── README.md # Documentación principal
+├── README.md # Documentación principal   
 └── .gitignore
-
+```
 
 ---
 
