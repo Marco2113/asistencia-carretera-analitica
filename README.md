@@ -1,116 +1,123 @@
-📊 Asistencia en Carretera – Análisis y Optimización de Costes
+# 🚗 Asistencia Carretera - Analítica de Incidencias  
 
+## 📌 Introducción  
 
+Este proyecto está inspirado en mi experiencia profesional en **asistencia en carretera**, donde gestiono incidencias de vehículos, tiempos de respuesta, costes y medios de retorno al domicilio de los clientes.  
 
+Con el objetivo de aplicar un flujo completo de análisis de datos (**ETL → EDA → Estadística → Dashboarding**), he creado un **dataset sintético** basado en patrones reales de mi trabajo, asegurando confidencialidad y anonimato.  
 
+De esta forma, el proyecto combina:  
+- **Contexto realista de negocio** (tiempos de respuesta, SLA 45 min, costes, satisfacción, resolución de incidencias).  
+- **Buenas prácticas analíticas** (limpieza, transformación y exploración de datos).  
+- **Visualización profesional** mediante dashboards en Power BI.  
 
+El resultado muestra cómo datos operativos del día a día pueden convertirse en **información estratégica** para mejorar la toma de decisiones en la empresa.  
 
+---
 
+## 🎯 Objetivos  
 
-🚗 Descripción
+- Aplicar un proceso **ETL** sobre un conjunto de datos realista.  
+- Realizar un **análisis exploratorio (EDA)**.  
+- Generar **estadísticas descriptivas e inferenciales**.  
+- Crear **dashboards interactivos** en Power BI.  
+- Mantener un repositorio organizado y reproducible.  
 
-Proyecto de analítica de datos aplicada a operaciones de asistencia en carretera, usando un dataset sintético que simula incidencias reales (averías, accidentes, retornos en taxi o grúa).
+---
 
-El objetivo es mostrar habilidades prácticas en Data Analytics:
+## 📂 Estructura del Proyecto  
 
-Creación de datasets simulados y limpios.
-
-Exploratory Data Analysis (Python, Pandas, Matplotlib).
-
-Dashboards interactivos en Power BI.
-
-App desplegada en Streamlit Cloud para visualización dinámica.
-
-Este proyecto forma parte de mi portfolio como Data Analyst Junior.
-
-📂 Estructura del Proyecto
 asistencia-carretera-analitica/
-│
-├── incidencias_asistencia_carretera.csv   # Dataset sintético (900 registros)
-├── diccionario_datos_incidencias.csv      # Glosario de campos
-├── EDA_incidencias.ipynb                  # Exploratory Data Analysis en Python
-├── app_streamlit_incidencias.py           # Aplicación Streamlit
-├── requirements.txt                       # Dependencias mínimas para Streamlit
-├── README.md                              # Este documento
+├── data/
+│ ├── raw/ # Dataset original (sintético)
+│ └── processed/ # Dataset transformado / limpio
+├── notebooks/ # Jupyter notebooks (EDA, pruebas, gráficas)
+├── dashboards/ # Power BI (.pbix) o exportaciones
+├── src/ # Scripts Python
+│ ├── etl.py # Extracción y transformación de datos
+│ ├── eda.py # Análisis exploratorio
+│ └── stats.py # Estadística descriptiva e inferencial
+├── requirements.txt # Dependencias
+├── README.md # Documentación principal
+└── .gitignore
 
-📑 Dataset Sintético
 
-Filas: 900 (1 año de datos, ago-2024 → ago-2025)
+---
 
-Columnas clave:
+## 🔎 Preguntas de Investigación  
 
-Fecha, Ciudad, Tipo_Incidencia, Tiempo_Respuesta_min, Costo_EUR, Medio_Retorno
+1. ¿Qué factores impactan en el cumplimiento del **SLA de 45 minutos**?  
+2. ¿Cuál es el **costo promedio por tipo de incidencia** y medio de retorno?  
+3. ¿Qué ciudades concentran el mayor número de incidencias?  
+4. ¿Existen patrones temporales (mensuales, diarios) en la ocurrencia de incidencias?  
+5. ¿Qué variables están más asociadas con la **satisfacción del cliente**?  
 
-SLA de 45 min, coste asociado, satisfacción cliente (1–5).
+---
 
-Ejemplo:
+## ⚙️ Metodología  
 
-Fecha	Ciudad	Tipo_Incidencia	Tiempo_Respuesta_min	Costo_EUR	Medio_Retorno	SLA_45min_Incumplido
-2025-08-25	Madrid	Batería	42.5	60.2	Taxi	No
-2025-08-25	Oviedo	Motor	88.1	150.7	Grúa	Sí
-📊 KPIs Principales
+1. **ETL (Extracción, Transformación y Carga)**  
+   - Normalización de fechas y coordenadas.  
+   - Limpieza de valores nulos e inconsistencias.  
+   - Generación de dataset procesado.  
 
-Tiempo medio de respuesta: 38.5 min
+2. **EDA (Exploratory Data Analysis)**  
+   - Distribución de tiempos de respuesta y costes.  
+   - Detección de outliers.  
+   - Segmentación por ciudad, tipo de incidencia y medio de retorno.  
 
-SLA 45 min incumplido: 30 %
+3. **Estadística**  
+   - Medias, medianas, desviaciones estándar.  
+   - Correlaciones entre variables (ej: tiempo de respuesta ↔ satisfacción).  
+   - Comparaciones por grupos.  
 
-Coste medio por incidencia: 82 €
+4. **Dashboard en Power BI**  
+   - KPIs:  
+     - Tiempo medio de respuesta.  
+     - % SLA 45 min incumplido.  
+     - Coste medio (€).  
+     - Satisfacción media (1-5).  
+     - % incidencias resueltas.  
+   - Visualizaciones:  
+     - **Mapa** por ciudad (conteo de incidencias).  
+     - **Barras**: coste medio por tipo de incidencia y medio de retorno.  
+     - **Línea temporal**: incidencias por mes.  
+     - **Boxplot**: tiempo de respuesta por ciudad.  
 
-Satisfacción cliente: 4.2 / 5
+---
 
-Top incidencias: Neumático (26 %), Batería (23 %)
+## 📊 Resultados Esperados  
 
-📈 Dashboard Power BI
+- Un **dataset limpio y documentado** (CSV).  
+- Notebooks con análisis y visualizaciones.  
+- Dashboard interactivo en Power BI.  
+- README completo para guiar la reproducción del proyecto.  
 
-Incluye:
+---
 
-Página 1 – KPI Ejecutivo: métricas clave (tiempo, coste, SLA).
+## 🚀 Reproducibilidad  
 
-Página 2 – Geografía: mapa por ciudad con incidencias.
+Clonar el repositorio:  
 
-Página 3 – Operaciones: costes por medio de retorno y tipo de incidencia.
-
-Página 4 – Tendencias: evolución mensual.
-
-(📌 Captura pendiente de añadir cuando lo tengas montado en Power BI.)
-
-🌐 Demo Interactiva – Streamlit
-
-👉 Abrir App en Streamlit Cloud
- (pondrás el link cuando la despliegues)
-
-La app permite:
-
-Filtrar por ciudad, tipo de incidencia, medio de retorno.
-
-Visualizar KPIs dinámicos.
-
-Explorar tablas y costes medios.
-
-🛠️ Tecnologías
-
-Lenguaje: Python (Pandas, Matplotlib, Numpy)
-
-Visualización: Power BI, Streamlit
-
-Infraestructura: Streamlit Cloud, GitHub
-
-Otros: EDA con Jupyter Notebook
-
-🚀 Cómo ejecutar localmente
-# Clonar repo
+```bash
 git clone https://github.com/Marco2113/asistencia-carretera-analitica.git
 cd asistencia-carretera-analitica
 
-# Instalar dependencias
+Instalar dependencias:
+
 pip install -r requirements.txt
 
-# Ejecutar app Streamlit
-streamlit run app_streamlit_incidencias.py
+Ejecutar scripts:
 
-📌 Autor
+python src/etl.py
+python src/eda.py
+python src/stats.py
 
-👤 Marco Adrian
+Abrir el dashboard en Power BI desde /dashboards/
+
+👤 Autor
+
+Marco Adrian
 
 GitHub
 
