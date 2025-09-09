@@ -102,25 +102,28 @@ Clonar el repositorio:
 ```bash
 git clone https://github.com/Marco2113/asistencia-carretera-analitica.git
 cd asistencia-carretera-analitica
+```
 
 Instalar dependencias:
 
+````
 pip install -r requirements.txt
+````
 
 Ejecutar scripts:
-
+ 
+ ````
 python src/etl.py
 python src/eda.py
 python src/stats.py
+````
 
 Abrir el dashboard en Power BI desde /dashboards/
 
-👤 Autor
+👤 Autor  
 
-Marco Adrian
+**Marco Adrian**  
 
-GitHub
+- [GitHub](https://github.com/Marco2113)  
+- [LinkedIn](https://www.linkedin.com/in/marco-adrian-hernandez/)  
 
-LinkedIn
-
-Coste Medio = AVERAGE('incidencias'[Costo_EUR])
