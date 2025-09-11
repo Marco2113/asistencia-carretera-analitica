@@ -29,17 +29,26 @@ El resultado muestra cómo datos operativos del día a día pueden convertirse e
 ```
 asistencia-carretera-analitica/
 ├── data/
-│ ├── raw/ # Dataset original (sintético)
-│ └── processed/ # Dataset transformado / limpio
-├── notebooks/ # Jupyter notebooks (EDA, pruebas, gráficas)
-├── dashboards/ # Power BI (.pbix) o exportaciones
-├── src/ # Scripts Python
-│ ├── etl.py # Extracción y transformación de datos
-│ ├── eda.py # Análisis exploratorio
-│ └── stats.py # Estadística descriptiva e inferencial
-├── requirements.txt # Dependencias
-├── README.md # Documentación principal   
+│   ├── raw/                      # Dataset original (sintético)
+│   └── processed/                # Dataset transformado / limpio
+├── notebooks/                    # Jupyter notebooks (EDA, limpieza, pruebas)
+│   ├── eda.ipynb                 # EDA (gráficos, exploración)
+│   ├── etl.ipynb                 # ETL (versión notebook)
+│   └── stats.ipynb               # Estadística (versión notebook)
+├── dashboards/                   # Power BI (.pbix) o exportaciones
+├── src/                          # Scripts Python
+│   ├── __init__.py               # Hace que src sea un paquete importable
+│   ├── etl.py                    # Extracción y transformación de datos
+│   ├── eda.py                    # EDA reproducible (figuras y mapas)
+│   └── stats.py                  # Estadística descriptiva e inferencial
+├── reports/
+│   ├── figs/                     # Figuras generadas (PNG)
+│   ├── mapas/                    # Mapas (HTML, folium)
+│   └── stats/                    # Resultados estadísticos (CSV)
+├── requirements.txt              # Dependencias (versionadas)
+├── README.md                     # Documentación principal
 └── .gitignore
+
 ```
 
 ---
@@ -63,13 +72,13 @@ asistencia-carretera-analitica/
 
 2. **EDA (Exploratory Data Analysis)**  
    - Distribución de tiempos de respuesta y costes.  
-   - Detección de outliers.  
-   - Segmentación por ciudad, tipo de incidencia y medio de retorno.  
+   - Segmentación por ciudad, proveedor y tipo de incidencia.  
+   - Series temporales y mapas.
 
 3. **Estadística**  
-   - Medias, medianas, desviaciones estándar.  
-   - Correlaciones entre variables (ej: tiempo de respuesta ↔ satisfacción).  
-   - Comparaciones por grupos.  
+   - ANOVA/Kruskal para costes por tipo.
+   - χ² de independencia (Tipo_Incidencia × SLA).
+   - Regresión logística sin fuga para incumplimiento del SLA. 
 
 4. **Dashboard en Power BI**  
    - KPIs:  
@@ -85,6 +94,44 @@ asistencia-carretera-analitica/
      - **Boxplot**: tiempo de respuesta por ciudad.  
 
 ---
+´´´
+📦 Datos y Supuestos (Data Dictionary)
+
+Campos principales (entrada cruda):
+
+| Campo                  | Tipo     | Descripción / Unidad                |
+| ---------------------- | -------- | ----------------------------------- |
+| `Id_Incidente`         | int      | Identificador del incidente         |
+| `Fecha`                | date str | Fecha (`YYYY-MM-DD`)                |
+| `Hora`                 | time str | Hora (`HH:MM` o `HH:MM:SS`)         |
+| `Ciudad`               | str      | Ciudad                              |
+| `Latitud`, `Longitud`  | float    | Coordenadas geográficas             |
+| `Tipo_Incidencia`      | str      | Categoría del incidente             |
+| `Tipo_Vehiculo`        | str      | Categoría del vehículo              |
+| `Proveedor`            | str      | Proveedor que atiende               |
+| `Distancia_km`         | float    | Distancia recorrida (km)            |
+| `Tiempo_Respuesta_min` | float    | Tiempo de respuesta (minutos)       |
+| `Medio_Retorno`        | str      | Medio de retorno                    |
+| `Costo_EUR`            | float    | Coste del servicio (€)              |
+| `Resuelto`             | str      | “Sí”/“No”                           |
+| `SLA_45min_Incumplido` | str      | “Sí”/“No” si está presente en crudo |
+| `Satisfaccion_1a5`     | float    | Satisfacción del cliente (1–5)      |
+| `Notas`                | str/NaN  | Eliminada en ETL                    |
+
+Campos derivados (ETL):
+
+| Campo                 | Tipo     | Descripción                                                                                                                                                                                         |
+| --------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Fecha_Hora`          | datetime | Ensamblado de `Fecha` + `Hora` cuando aplica                                                                                                                                                        |
+| `SLA_Incumplido`      | Int64    | **Objetivo binario**: 1=incumple, 0=cumple. Si `SLA_45min_Incumplido` existe, se mapea “Sí/No”→1/0 (normalizando tildes y espacios). Si **no** existe, se calcula como `Tiempo_Respuesta_min > 45`. |
+| `Anio`, `MesN`, `Mes` | int/str  | Año, número de mes y nombre de mes (español)                                                                                                                                                        |
+
+
+Supuestos clave:
+- SLA incumplido si Tiempo_Respuesta_min > 45.
+- Normalización textual para evitar duplicados (p. ej., “Sí” ≡ “si”).
+- Notas se descarta del dataset analítico.
+
 
 ## 📊 Resultados Esperados  
 
@@ -125,5 +172,5 @@ Abrir el dashboard en Power BI desde /dashboards/
 **Marco Adrian**  
 
 - [GitHub](https://github.com/Marco2113)  
-- [LinkedIn](https://www.linkedin.com/in/marco-adrian-hernandez/)  
+- [LinkedIn](https://www.linkedin.com/in/marco-adrian-5b1bb4279/)  
 
