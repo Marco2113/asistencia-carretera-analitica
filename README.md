@@ -43,10 +43,6 @@ asistencia-carretera-analitica/
 │   ├── etl.py                    # Extracción y transformación de datos
 │   ├── eda.py                    # EDA reproducible (figuras y mapas)
 │   └── stats.py                  # Estadística descriptiva e inferencial
-├── reports/
-│   ├── figs/                     # Figuras generadas (PNG)
-│   ├── mapas/                    # Mapas (HTML, folium)
-│   └── stats/                    # Resultados estadísticos (CSV)
 ├── requirements.txt              # Dependencias (versionadas)
 ├── README.md                     # Documentación principal
 └── .gitignore
