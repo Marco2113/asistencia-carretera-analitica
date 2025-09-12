@@ -182,4 +182,3 @@ Abrir el dashboard en Power BI desde /dashboards/
 
 - [GitHub](https://github.com/Marco2113)  
 - [LinkedIn](https://www.linkedin.com/in/marco-adrian-5b1bb4279/)  
-

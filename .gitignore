@@ -1,0 +1,68 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.dylib
+
+# Virtual envs / environments
+.venv/
+venv/
+env/
+.conda/
+pythonenv*
+pip-wheel-metadata/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs & caches
+*.log
+logs/
+.cache/
+.pytest_cache/
+.mypy_cache/
+.pytype/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Builds / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.code-workspace
+
+# Credentials / secrets
+.env
+.env.*
+*.env
+secrets.*
+credentials.*
+*.key
+*.pem
+
+# Project data
+data/raw/**
+!data/raw/.gitkeep
+data/processed/**
+!data/processed/.gitkeep
+
+# Reports/exports
+reports/**
+!reports/.gitkeep
+
+# Maps/HTML exports
+reports/**/*.html
