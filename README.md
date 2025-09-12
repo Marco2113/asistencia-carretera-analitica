@@ -36,6 +36,8 @@ asistencia-carretera-analitica/
 │   ├── etl.ipynb                 # ETL (versión notebook)
 │   └── stats.ipynb               # Estadística (versión notebook)
 ├── dashboards/                   # Power BI (.pbix) o exportaciones
+│   ├── dashboard_asistencia.pbix
+│   ├── dashboard_asistencia.pdf                
 ├── src/                          # Scripts Python
 │   ├── __init__.py               # Hace que src sea un paquete importable
 │   ├── etl.py                    # Extracción y transformación de datos
@@ -80,18 +82,25 @@ asistencia-carretera-analitica/
    - χ² de independencia (Tipo_Incidencia × SLA).
    - Regresión logística sin fuga para incumplimiento del SLA. 
 
-4. **Dashboard en Power BI**  
-   - KPIs:  
-     - Tiempo medio de respuesta.  
-     - % SLA 45 min incumplido.  
-     - Coste medio (€).  
-     - Satisfacción media (1-5).  
-     - % incidencias resueltas.  
-   - Visualizaciones:  
-     - **Mapa** por ciudad (conteo de incidencias).  
-     - **Barras**: coste medio por tipo de incidencia y medio de retorno.  
-     - **Línea temporal**: incidencias por mes.  
-     - **Boxplot**: tiempo de respuesta por ciudad.  
+4. **📊 Dashboard en Power BI**  
+
+El análisis culmina con un **dashboard interactivo en Power BI**, diseñado para responder de forma visual y rápida a las preguntas de negocio:  
+
+### KPIs principales
+- ⚡ **Incidencias Totales**  
+- ⏱️ **% Incumplimiento SLA (45 min)**  
+- 🕑 **Tiempo Medio de Respuesta** y **Percentil 95**  
+- 💰 **Costo Medio (€)** y **Costo Total (€)**  
+- ⭐ **Satisfacción Media (1–5)**  
+- (Opcional) 🔮 **Probabilidad Media de Incumplir (modelo logístico)**  
+
+### Visualizaciones clave
+- **Mapa interactivo** con distribución de incidencias por ciudad.  
+- **Gráfico de barras**: coste medio por tipo de incidencia y proveedor.  
+- **Serie temporal**: evolución de incidencias por mes.  
+- **Boxplot**: tiempo de respuesta por ciudad.  
+- **Gráfico circular**: % SLA cumplido vs incumplido.  
+ 
 
 ---
 ´´´
@@ -139,6 +148,17 @@ Supuestos clave:
 - Notebooks con análisis y visualizaciones.  
 - Dashboard interactivo en Power BI.  
 - README completo para guiar la reproducción del proyecto.  
+
+### Ejemplo de dashboard
+![Dashboard Power BI](reports/figs/dashboard_example.png)  
+
+📂 El archivo completo está en la carpeta [`/dashboards`](dashboards/dashboard_asistencia)
+
+
+El dashboard completo está disponible en formato PDF:  
+
+[📄 Ver Dashboard (PDF)](dashboards/dashboard_asistencia.pdf)  
+
 
 ---
 
