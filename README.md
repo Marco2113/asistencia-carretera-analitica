@@ -103,7 +103,6 @@ El análisis culmina con un **dashboard interactivo en Power BI**, diseñado par
  
 
 ---
-´´´
 📦 Datos y Supuestos (Data Dictionary)
 
 Campos principales (entrada cruda):
