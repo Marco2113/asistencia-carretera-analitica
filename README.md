@@ -149,16 +149,6 @@ Supuestos clave:
 - Dashboard interactivo en Power BI.  
 - README completo para guiar la reproducción del proyecto.  
 
-### Ejemplo de dashboard
-![Dashboard Power BI](reports/figs/dashboard_example.png)  
-
-📂 El archivo completo está en la carpeta [`/dashboards`](dashboards/dashboard_asistencia)
-
-
-El dashboard completo está disponible en formato PDF:  
-
-[📄 Ver Dashboard (PDF)](dashboards/dashboard_asistencia.pdf)  
-
 
 ---
 
